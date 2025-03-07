@@ -1,4 +1,4 @@
-package Registration;
+package Products;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import flipkartDao.Register;
 
 public class ProductRegister {
 
-	public static void RegisterProduct() throws SQLException {
+	public static void AddProduct() throws SQLException {
 		// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);

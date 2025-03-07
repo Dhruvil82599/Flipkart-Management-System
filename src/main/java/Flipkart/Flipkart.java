@@ -24,7 +24,7 @@ public class Flipkart {
 		System.out.println("🔹 0️  Exit");
 		System.out.println();
 
-		System.out.print("👉 Select Your Choice: ");
+		System.out.print("👉 Select Your Choice:- ");
 		int choice = sc.nextInt();
 
 		a: while (true) {

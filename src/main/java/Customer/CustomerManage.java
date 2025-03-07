@@ -1,4 +1,4 @@
-package Registration;
+package Customer;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -6,8 +6,8 @@ import java.util.Scanner;
 import entity.CustomerEntity;
 import flipkartDao.Register;
 
-public class CustomerRegister {
-
+public class CustomerManage {
+	
 	public static void CustomerRegister() throws SQLException {
 		// TODO Auto-generated method stub
 
@@ -47,7 +47,5 @@ public class CustomerRegister {
 		entity.setPassword(password);
 
 		Register.CustomerRegister(entity);
-
 	}
-
 }

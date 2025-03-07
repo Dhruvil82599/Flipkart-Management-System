@@ -3,7 +3,7 @@ package flipkartDao;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import Registration.CustomerRegister;
+import Customer.CustomerManage;
 
 public class CustomerPanel {
 
@@ -12,7 +12,7 @@ public class CustomerPanel {
 		System.out.println("\n************************************************************");
 		System.out.println("                 ⭐ WELCOME TO CUSTOMER PANEL ⭐               ");
 		System.out.println("************************************************************");
-		System.out.println("\n🔹 Press 1 : Login");
+		System.out.println("🔹 Press 1 : Login");
 		System.out.println("🔹 Press 2 : Register Customer");
 		System.out.println();
 		System.out.println("************************************************************\n");
@@ -27,7 +27,8 @@ public class CustomerPanel {
 			break;
 
 		case 2:
-			CustomerRegister.CustomerRegister();
+			CustomerManage.CustomerRegister();
+			
 		}
 
 	}

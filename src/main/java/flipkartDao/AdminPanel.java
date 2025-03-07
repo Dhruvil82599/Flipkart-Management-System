@@ -3,7 +3,8 @@ package flipkartDao;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import Registration.ProductRegister;
+import Products.ListOfProduct;
+import Products.ProductRegister;
 
 public class AdminPanel {
 
@@ -30,7 +31,7 @@ public class AdminPanel {
 		a: switch (choice) {
 
 		case 1:
-			ProductRegister.RegisterProduct();
+			ProductRegister.AddProduct();
 			break;
 
 		case 2:
@@ -41,7 +42,7 @@ public class AdminPanel {
 			break;
 
 		case 4:
-
+			ListOfProduct.
 			break;
 
 		case 5:
