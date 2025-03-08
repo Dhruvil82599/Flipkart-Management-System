@@ -57,7 +57,7 @@ public class Register {
 
         if (i > 0) {
             System.out.println("Product Register Successfully...");
-            AdminPanel.main();
+            AdminPanel.main(null);
         } else {
             System.out.println("Please Try Again");
         }

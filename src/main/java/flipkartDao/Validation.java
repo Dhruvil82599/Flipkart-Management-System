@@ -36,7 +36,7 @@ public class Validation {
 			boolean isValid = rs.getBoolean(1);
 			if (isValid) {
 				System.out.println("Admin login Successfully...");
-				AdminPanel.main();
+				AdminPanel.main(null);
 			} else {
 				System.out.println("Please Check Your id Or Password");
 				Validation.IsAdminValid();

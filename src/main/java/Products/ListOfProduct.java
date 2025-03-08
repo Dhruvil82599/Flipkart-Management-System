@@ -8,23 +8,37 @@ import java.sql.SQLException;
 import flipkartDao.ConnectionPool;
 
 public class ListOfProduct {
-	public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
+        String query = "SELECT * FROM flipkart_product";
 
-		Connection connection = ConnectionPool.getConnectionObject();
+        // Using try-with-resources for automatic resource management
+        try (Connection connection = ConnectionPool.getConnectionObject();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet set = statement.executeQuery()) {
 
-		String query = "select * from flipkart_product";
+            System.out.println("═══════════════════════════════════════════");
+            System.out.printf("%-12s %-20s %-10s%n", "Product ID", "Product Name", "Price");
+            System.out.println("═══════════════════════════════════════════");
 
-		PreparedStatement statement = connection.prepareStatement(query);
-		ResultSet set = statement.executeQuery();
+            boolean hasProducts = false;
 
-		System.out.println("Product ID\tProduct Name\tProduct Price\t");
+            while (set.next()) {
+                hasProducts = true;
+                int id = set.getInt(1);
+                String name = set.getString(2);
+                int price = set.getInt(3);
 
-		while(set.next()){
-			set.getInt(1);
-			set.getString(2);
-			set.getInt(3);
-			System.out.println(set.getInt(1) + "\t\t" + set.getString(2) + "\t\t" + set.getInt(3));
-		}
-	}
+                System.out.printf("%-12d %-20s %-10d%n", id, name, price);
+            }
 
+            if (!hasProducts) {
+                System.out.println("⚠️ No products found in the database.");
+            }
+
+            System.out.println("═══════════════════════════════════════════");
+
+        } catch (SQLException e) {
+            System.out.println("❌ Error fetching product list: " + e.getMessage());
+        }
+    }
 }

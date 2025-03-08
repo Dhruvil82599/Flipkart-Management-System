@@ -8,28 +8,34 @@ import flipkartDao.Register;
 
 public class ProductRegister {
 
-	public static void AddProduct() throws SQLException {
-		// TODO Auto-generated method stub
+    public static void AddProduct() throws SQLException {
+        // Using try-with-resources to ensure Scanner is closed properly
+        try (Scanner sc = new Scanner(System.in)) {
 
-		Scanner sc = new Scanner(System.in);
+            System.out.print("Enter the Product ID: ");
+            int id = sc.nextInt();
+            sc.nextLine(); // Consume the newline character to prevent input skipping
 
-		System.out.println("Enter the Product id:- ");
-		int id = sc.nextInt();
+            System.out.print("Enter the Product Name: ");
+            String name = sc.nextLine().trim(); // Trim to remove leading/trailing spaces
 
-		System.out.println("Enter the Product name:- ");
-		String name = sc.next();
+            System.out.print("Enter the Product Price: ");
+            int price = sc.nextInt();
 
-		System.out.println("Enter the Product price:- ");
-		int price = sc.nextInt();
+            // Creating and setting product entity
+            ProductEntity entity = new ProductEntity();
+            entity.setProduct_id(id);
+            entity.setProduct_name(name);
+            entity.setProduct_price(price);
 
-		ProductEntity entity = new ProductEntity();
-
-		entity.setProduct_id(id);
-		entity.setProduct_name(name);
-		entity.setProduct_price(price);
-		
-		Register.productRegister(entity);
-
-	}
-
+            // Registering product with exception handling
+            try {
+                Register.productRegister(entity);
+                System.out.println("✅ Product registered successfully!");
+            } catch (SQLException e) {
+                System.out.println("❌ Error registering product: " + e.getMessage());
+                throw e;
+            }
+        }
+    }
 }
