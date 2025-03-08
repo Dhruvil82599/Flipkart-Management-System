@@ -7,6 +7,7 @@ import Customer.CustomerManage;
 import Flipkart.Flipkart;
 import Products.ListOfProduct;
 import Products.ProductRegister;
+import Products.UpdateProduct;
 
 public class AdminPanel {
 
@@ -39,6 +40,7 @@ public class AdminPanel {
                 case 2:
                     // Implement update product functionality
                     System.out.println("Update product functionality not implemented yet.");
+                    UpdateProduct.main(null);
                     break;
                 case 3:
                     // Implement delete product functionality
