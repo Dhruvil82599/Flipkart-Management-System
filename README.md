@@ -8,15 +8,15 @@ A simple **console-based Flipkart management system** written in C/Java/Python (
 
 ### 👑 **Admin Side**
 
-| Feature                                    | Description                                           | Icon      |
-|--------------------------------------------|------------------------------------------------------|-----------|
-| 🔐 **Admin Login**                         | Secure login for admin to access management options | 🔑        |
-| ➕ **Add Product**                         | Add new products to the system                      | 🆕🛍️      |
-| 📝 **Update Product**                     | Update existing product details                    | ✏️🛒      |
-| ❌ **Delete Product**                     | Remove product from the system                     | 🗑️🛍️      |
-| 📋 **List of All Available Products**      | View all products currently in inventory           | 📦📦       |
-| 👥 **List of All Available Customers**    | View all registered customers                      | 🧑‍🤝‍🧑    |
-| 🚪 **Exit**                               | Exit from admin panel                              | 🚪        |
+| Feature                                    | Description
+|--------------------------------------------|------------------------------------------------------
+| 🔐 **Admin Login**                         | Secure login for admin to access management options 
+| ➕ **Add Product**                         | Add new products to the system
+| 📝 **Update Product**                     | Update existing product details                 
+| ❌ **Delete Product**                     | Remove product from the system                     
+| 📋 **List of All Available Products**      | View all products currently in inventory           
+| 👥 **List of All Available Customers**    | View all registered customers                   
+| 🚪 **Exit**                               | Exit from admin panel                             
 
 ---
 
