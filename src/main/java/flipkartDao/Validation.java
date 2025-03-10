@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import Products.ListOfProduct;
+
 public class Validation {
 
 	public static void IsAdminValid() throws SQLException {
@@ -57,10 +59,10 @@ public class Validation {
 
 		System.out.println("Customer Login");
 
-		System.out.println("Enter Customer Id");
+		System.out.print("Enter Customer Id :- ");
 		int id = sc.nextInt();
 
-		System.out.println("Enter Customer Password");
+		System.out.print("Enter Customer Password :-");
 		String password = sc.next();
 
 		Connection connection = ConnectionPool.getConnectionObject();
@@ -78,8 +80,10 @@ public class Validation {
 			boolean isvalid = rs.getBoolean(1);
 			if (isvalid) {
 				System.out.println("Flipkart Login Successfully...");
+				ListOfProduct.main(null);
 			} else {
 				System.out.println("Please Check Your Id Or Password...");
+				Validation.isCustomerLogin();
 			}
 		}
 

@@ -19,6 +19,7 @@ public class CustomerPanel {
 
 		Scanner sc = new Scanner(System.in);
 
+		System.out.print("Enter Your Choice :- ");
 		int choice = sc.nextInt();
 
 		switch (choice) {
