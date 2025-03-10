@@ -22,11 +22,11 @@ A simple **console-based Flipkart management system** written in C/Java/Python (
 
 ### 👤 **Customer Side**
 
-| Feature                                    | Description                                           | Icon      |
-|--------------------------------------------|------------------------------------------------------|-----------|
-| 📝 **Customer Register**                  | New customer account registration                   | 🆕👤       |
-| 🔑 **Customer Login**                    | Login for existing customers                        | 🔐        |
-| 🛍️ **List of All Available Products**    | Browse all available products                      | 🛒🛍️      |
+| Feature                                    | Description                                           
+|--------------------------------------------|------------------------------------------------------
+| 📝 **Customer Register**                  | New customer account registration                   
+| 🔑 **Customer Login**                    | Login for existing customers                        
+| 🛍️ **List of All Available Products**    | Browse all available products                      
 
 ---
 
