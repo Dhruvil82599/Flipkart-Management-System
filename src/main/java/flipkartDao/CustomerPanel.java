@@ -14,6 +14,7 @@ public class CustomerPanel {
 		System.out.println("************************************************************");
 		System.out.println("🔹 Press 1 : Login");
 		System.out.println("🔹 Press 2 : Register Customer");
+		System.out.println("🔹 Press 3 : Delete Customer Using Id");
 		System.out.println();
 		System.out.println("************************************************************\n");
 
@@ -29,7 +30,11 @@ public class CustomerPanel {
 
 		case 2:
 			CustomerManage.CustomerRegister();
+			break;
 			
+		case 3:
+			CustomerManage.DeleteCustomer();
+			break;
 		}
 
 	}

@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import entity.CustomerEntity;
 import flipkartDao.ConnectionPool;
+import flipkartDao.CustomerPanel;
 import flipkartDao.Register;
 
 public class CustomerManage {
@@ -60,18 +61,21 @@ public class CustomerManage {
 		}
 	}
 
-	public static void ListOfCustomer() {
+	public static void ListOfCustomer() throws SQLException {
 		String query = "SELECT * FROM flipkart_customer";
 
-		// Using try-with-resources for automatic resource management
-		try (Connection connection = ConnectionPool.getConnectionObject();
-				PreparedStatement statement = connection.prepareStatement(query);
-				ResultSet set = statement.executeQuery()) {
+		Connection connection = ConnectionPool.getConnectionObject();
 
-			System.out.println("═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
+		PreparedStatement statement = connection.prepareStatement(query);
+		ResultSet set = statement.executeQuery();
+		{
+
+			System.out.println(
+					"═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
 			System.out.printf("%-12s %-20s %-25s %-15s %-15s %-15s%n", "Customer ID", "Customer Name", "Customer Email",
 					"Mobile Number", "City", "Password");
-			System.out.println("═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
+			System.out.println(
+					"═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
 
 			boolean hasCustomers = false;
 
@@ -91,10 +95,45 @@ public class CustomerManage {
 				System.out.println("⚠️ No customers found in the database.");
 			}
 
-			System.out.println("═════════════════════════════════════════════════════════════════════════════════════════════════");
+			System.out.println(
+					"═════════════════════════════════════════════════════════════════════════════════════════════════");
 
-		} catch (SQLException e) {
-			System.out.println("❌ Error fetching customer list: " + e.getMessage());
+			System.out.println("❌ Error fetching customer list: ");
 		}
+		ConnectionPool.reciveConnectionObject(connection);
+	}
+
+	public static void DeleteCustomer() throws SQLException {
+		// TODO Auto-generated method stub
+
+		System.out.println("Delete Customer");
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Customer Id :- ");
+
+		int CustomerId = sc.nextInt();
+
+		Connection connection = ConnectionPool.getConnectionObject();
+
+		String query = "DELETE FROM flipkart_customer WHERE customer_id = ?";
+
+		try (PreparedStatement statement = connection.prepareStatement(query)) {
+			statement.setInt(1, CustomerId);
+
+			int rows = statement.executeUpdate();
+
+			if (rows > 0) {
+				System.out.println("Customer Deleted Successfully");
+			} else {
+				System.out.println("Customer Not Deleted");
+			}
+		} catch (SQLException e) {
+			System.out.println("❌ Error deleting customer: " + e.getMessage());
+		}
+
+		ConnectionPool.reciveConnectionObject(connection);
+		sc.close();
+		CustomerPanel.main(null);
+
 	}
 }
